@@ -39,3 +39,31 @@ public class CharacterClass
         _primeRequiste = primeRequiste;
     }
 }
+
+public class Fighter : CharacterClass
+{
+    public Fighter() : base("Fighter", 8, 2000, "Strength")
+    {
+    }
+}
+
+public class Thief : CharacterClass
+{
+    public Thief() : base("Thief", 4, 1200, "Dexterity")
+    {
+    }
+}
+
+public class Cleric : CharacterClass
+{
+    public Cleric() : base("Cleric", 6, 1500, "Wisdom")
+    {
+    }
+}
+
+public class MagicUser : CharacterClass
+{
+    public MagicUser() : base("Magic-User", 4, 2500, "Intelligence")
+    {
+    }
+}
