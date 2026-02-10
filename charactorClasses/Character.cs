@@ -58,4 +58,21 @@ public class Character
         get => _hitPoints;
         set => _hitPoints = value;
     }
+
+    /// <summary>
+    /// Rolls three six-sided dice and returns the sum (3-18)
+    /// </summary>
+    public int RollDice()
+    {
+        Random random = new  Random();
+        int total = 0;
+
+        for (int i = 0; i < 3; i++)
+        {
+            total += random.Next(1, 7);
+        }
+        return total;
+    }
+    
 }
+
