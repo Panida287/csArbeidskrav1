@@ -101,6 +101,14 @@ public class Character
         Console.WriteLine($" Dexterity: {Dexterity}");
         Console.WriteLine($" Constitution: {Constitution}");
         Console.WriteLine($" Charisma: {Charisma}");
+
+        int GetAverage()
+        {
+            return (Strength + Intelligence + Wisdom + Dexterity + Constitution + Charisma) / 6;
+        }
+        
+        int average = GetAverage();
+        Console.WriteLine($" Average ability score: {average}");
     }
     
 }
