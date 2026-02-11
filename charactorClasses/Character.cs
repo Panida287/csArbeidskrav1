@@ -109,6 +109,27 @@ public class Character
         
         int average = GetAverage();
         Console.WriteLine($" Average ability score: {average}");
+
+        if (average <= 8)
+        {
+            string answer = "";
+
+            while (answer != "Y" && answer != "N")
+            {
+                Console.Write("\nYour ability scores are below average. Would you like to reroll? (Y/N): ");
+                answer = Console.ReadLine().ToUpper();
+
+                if (answer != "Y" && answer != "N")
+                {
+                    Console.WriteLine("Invalid input. Please enter Y or N.");
+                }
+            }
+
+            if (answer == "Y")
+            {
+                RollAbilityScores();
+            }
+        }
     }
     
 }
