@@ -1,3 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using csArbeidskrav1.charactorClasses;
 
-Console.WriteLine("Hello, World!");
+class Program
+{
+    static void Main(string[] args)
+    {
+        Character myCharacter = new Character();
+
+        myCharacter.Name = "Test";
+
+        myCharacter.RollAbilityScores();
+
+    }
+}
+

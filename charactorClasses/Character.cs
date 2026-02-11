@@ -9,6 +9,7 @@ public class Character
     private int _dexterity;
     private int _constitution;
     private int _charisma;
+    private CharacterClass _selectedClass;
     private int _hitPoints;
     
     public string Name
@@ -52,6 +53,12 @@ public class Character
         get => _charisma;
         set => _charisma = value;
     }
+    
+    public CharacterClass SelectedClass
+    {
+        get => _selectedClass;
+        set => _selectedClass = value;
+    }
 
     public int HitPoints
     {
@@ -72,6 +79,28 @@ public class Character
             total += random.Next(1, 7);
         }
         return total;
+    }
+
+    /// <summary>
+    /// Rolls all six ability scores and handles reroll if average is too low
+    /// </summary>
+
+    public void RollAbilityScores()
+    {
+        Strength = RollDice();
+        Intelligence = RollDice();
+        Wisdom = RollDice();
+        Dexterity = RollDice();
+        Constitution = RollDice();
+        Charisma = RollDice();
+        
+        Console.WriteLine("\nRolling ability scores...");
+        Console.WriteLine($" Strength: {Strength}");
+        Console.WriteLine($" Intelligence: {Intelligence}");
+        Console.WriteLine($" Wisdom: {Wisdom}");
+        Console.WriteLine($" Dexterity: {Dexterity}");
+        Console.WriteLine($" Constitution: {Constitution}");
+        Console.WriteLine($" Charisma: {Charisma}");
     }
     
 }
