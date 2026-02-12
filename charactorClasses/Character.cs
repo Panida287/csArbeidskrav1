@@ -146,5 +146,44 @@ public class Character
         return new int[] { highest, secondHighest };
     }
     
+    /// <summary>
+    /// Checks if a specific ability score is in the top two
+    /// </summary>
+    public bool IsInTopTwo(int score)
+    {
+        int[] topTwo = GetTopTwoScores();
+        return score == topTwo[0] || score == topTwo[1];
+    }
+    
+    /// <summary>
+    /// Determines which classes are available based on top two ability scores
+    /// </summary>
+    public List<CharacterClass> GetAvailableClasses(List<CharacterClass> allClasses)
+    {
+        List<CharacterClass> availableClasses = new List<CharacterClass>();
+
+        foreach (CharacterClass charClass in allClasses)
+        {
+            if (charClass.PrimeRequisite == "Strength" && IsInTopTwo(Strength))
+            {
+                availableClasses.Add(charClass);
+            }
+            else if (charClass.PrimeRequisite == "Intelligence" && IsInTopTwo(Intelligence))
+            {
+                availableClasses.Add(charClass);
+            }
+            else if (charClass.PrimeRequisite == "Wisdom" && IsInTopTwo(Wisdom))
+            {
+                availableClasses.Add(charClass);
+            }
+            else if (charClass.PrimeRequisite == "Dexterity" && IsInTopTwo(Dexterity))
+            {
+                availableClasses.Add(charClass);
+            }
+        }
+
+        return availableClasses;
+    }
+    
 }
 

@@ -5,7 +5,7 @@ public class CharacterClass
     private string _name;
     private int _hitDie;
     private int _xpForLevel2;
-    private string _primeRequiste;
+    private string _primeRequisite;
 
     public string Name
     {
@@ -25,18 +25,18 @@ public class CharacterClass
         set => _xpForLevel2 = value;
     }   
     
-    public string PrimeRequiste
+    public string PrimeRequisite
     {
-        get => _primeRequiste;
-        set => _primeRequiste = value;
+        get => _primeRequisite;
+        set => _primeRequisite = value;
     }
 
-    public CharacterClass(String name, int hitDie, int xpForLevel2, string primeRequiste)
+    public CharacterClass(String name, int hitDie, int xpForLevel2, string primeRequisite)
     {
         _name = name;
         _hitDie = hitDie;
         _xpForLevel2 = xpForLevel2;
-        _primeRequiste = primeRequiste;
+        _primeRequisite = primeRequisite;
     }
 }
 
