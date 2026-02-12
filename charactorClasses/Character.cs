@@ -132,5 +132,19 @@ public class Character
         }
     }
     
+    /// <summary>
+    /// Gets the two highest ability score VALUES
+    /// </summary>
+    public int[] GetTopTwoScores()
+    {
+        int[] allScores = { Strength, Intelligence, Wisdom, Dexterity, Constitution, Charisma };
+        Array.Sort(allScores);
+        
+        int highest = allScores[5];
+        int secondHighest = allScores[4];
+        
+        return new int[] { highest, secondHighest };
+    }
+    
 }
 
