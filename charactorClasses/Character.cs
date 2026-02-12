@@ -209,14 +209,17 @@ public class Character
         }
 
         Console.Write($"\nSelect a class (1-{availableClasses.Count}): ");
-        string input = Console.ReadLine();
-        int choice = int.Parse(input);
+        int choice;
+    
+        while (!int.TryParse(Console.ReadLine(), out choice))
+        {
+            Console.Write("Please enter a number: ");
+        }
 
         while (choice < 1 || choice > availableClasses.Count)
         {
             Console.Write($"Invalid choice. Please select (1-{availableClasses.Count}): ");
-            input = Console.ReadLine();
-            choice = int.Parse(input);
+            int.TryParse(Console.ReadLine(), out choice);  // ← Changed from int.Parse!
         }
 
         SelectedClass = availableClasses[choice - 1];
