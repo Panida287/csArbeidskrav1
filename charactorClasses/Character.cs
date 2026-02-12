@@ -147,7 +147,7 @@ public class Character
     }
     
     /// <summary>
-    /// Checks if a specific ability score is in the top two
+    /// Checks if a specific ability score is in the top two to handle ties
     /// </summary>
     public bool IsInTopTwo(int score)
     {
