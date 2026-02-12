@@ -224,5 +224,46 @@ public class Character
         return SelectedClass;
     }
     
+    /// <summary>
+    /// Calculates the ability score modifier based on OSE rules
+    /// </summary>
+    public int CalculateModifier(int abilityScore)
+    {
+        if (abilityScore == 3) return -3;
+        if (abilityScore >= 4 && abilityScore <= 5) return -2;
+        if (abilityScore >= 6 && abilityScore <= 8) return -1;
+        if (abilityScore >= 9 && abilityScore <= 12) return 0;
+        if (abilityScore >= 13 && abilityScore <= 15) return 1;
+        if (abilityScore >= 16 && abilityScore <= 17) return 2;
+        if (abilityScore == 18) return 3;
+
+        return 0;
+    }
+    
+    /// <summary>
+    /// Rolls hit points based on class hit die and constitution modifier
+    /// </summary>
+    public int RollHitPoints()
+    {
+        Random random = new Random();
+        int roll = random.Next(1, SelectedClass.HitDie + 1);
+
+        int conModifier = CalculateModifier(Constitution);
+
+        int hitPoints = roll + conModifier;
+
+        if (hitPoints < 1)
+        {
+            hitPoints = 1;
+        }
+
+        HitPoints = hitPoints;
+
+        Console.WriteLine($"\nRolling hit points: 1d{SelectedClass.HitDie} + {conModifier} (CON modifier)");
+        Console.WriteLine($"Hit Points: {HitPoints}");
+
+        return hitPoints;
+    }
+    
 }
 
