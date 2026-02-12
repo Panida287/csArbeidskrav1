@@ -265,5 +265,34 @@ public class Character
         return hitPoints;
     }
     
+    /// <summary>
+    /// Displays the completed character sheet
+    /// </summary>
+    public void DisplayCharacter()
+    {
+        Console.WriteLine("\n=== Character Created ===");
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Class: {SelectedClass.Name}");
+        Console.WriteLine($"Hit Points: {HitPoints}");
+
+        Console.WriteLine("\nAbility Scores:");
+        Console.WriteLine($" STR: {Strength}  INT: {Intelligence}  WIS: {Wisdom}");
+        Console.WriteLine($" DEX: {Dexterity}  CON: {Constitution}  CHA: {Charisma}");
+
+        int primeScore = 0;
+        string primeName = SelectedClass.PrimeRequisite;
+
+        if (primeName == "Strength") primeScore = Strength;
+        else if (primeName == "Intelligence") primeScore = Intelligence;
+        else if (primeName == "Wisdom") primeScore = Wisdom;
+        else if (primeName == "Dexterity") primeScore = Dexterity;
+
+        int primeModifier = CalculateModifier(primeScore);
+        string modifierString = primeModifier >= 0 ? $"+{primeModifier}" : primeModifier.ToString();
+
+        Console.WriteLine($"\nPrime Requisite: {primeName} ({primeScore}) - Modifier: {modifierString}");
+        Console.WriteLine($"XP for Level 2: {SelectedClass.XpForLevel2:N0}");
+    }
 }
+
 
