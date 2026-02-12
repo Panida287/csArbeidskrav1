@@ -185,5 +185,44 @@ public class Character
         return availableClasses;
     }
     
+    /// <summary>
+    /// Displays available classes and lets user select one
+    /// </summary>
+    public CharacterClass SelectClass(List<CharacterClass> allClasses)
+    {
+        List<CharacterClass> availableClasses = GetAvailableClasses(allClasses);
+
+        Console.WriteLine("\nAvailable classes based on your scores:");
+
+        for (int i = 0; i < availableClasses.Count; i++)
+        {
+            int displayNumber = i + 1;
+            CharacterClass charClass = availableClasses[i];
+            Console.WriteLine($" {displayNumber}. {charClass.Name} (Prime: {charClass.PrimeRequisite})");
+        }
+
+        if (availableClasses.Count == 1)
+        {
+            SelectedClass = availableClasses[0];
+            Console.WriteLine($"\nOnly one class available. Auto-selecting: {SelectedClass.Name}");
+            return SelectedClass;
+        }
+
+        Console.Write($"\nSelect a class (1-{availableClasses.Count}): ");
+        string input = Console.ReadLine();
+        int choice = int.Parse(input);
+
+        while (choice < 1 || choice > availableClasses.Count)
+        {
+            Console.Write($"Invalid choice. Please select (1-{availableClasses.Count}): ");
+            input = Console.ReadLine();
+            choice = int.Parse(input);
+        }
+
+        SelectedClass = availableClasses[choice - 1];
+        Console.WriteLine($"\nYou selected: {SelectedClass.Name}");
+        return SelectedClass;
+    }
+    
 }
 
