@@ -219,7 +219,7 @@ public class Character
         while (choice < 1 || choice > availableClasses.Count)
         {
             Console.Write($"Invalid choice. Please select (1-{availableClasses.Count}): ");
-            int.TryParse(Console.ReadLine(), out choice);  // ← Changed from int.Parse!
+            int.TryParse(Console.ReadLine(), out choice);
         }
 
         SelectedClass = availableClasses[choice - 1];
