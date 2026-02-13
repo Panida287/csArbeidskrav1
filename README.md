@@ -1,6 +1,6 @@
 # OSE Character Generator
 
-A command-line character generator for Old-School Essentials (OSE) tabletop RPG, built as part of my Object-Oriented Programming course at Høgskolen i Østfold.
+A command-line character generator for Old-School Essentials (OSE) tabletop RPG
 
 ## Description
 
